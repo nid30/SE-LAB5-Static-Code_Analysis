@@ -1,0 +1,7 @@
+Issue,Tool,Type (bug/security/style),Location,Description,Fix applied
+"Mutable default argument logs=[]","pylint","Bug","function addItem","Default list shared between calls","Changed default to None, create list inside function"
+"Bare except:","pylint","Bug","removeItem and others","Masks exceptions and hides real errors","Catch specific exceptions, log and re-raise where appropriate"
+"Use of eval()","bandit","Security (HIGH)","main","Arbitrary code execution vulnerability","Removed eval(), replaced with safe code"
+"File open without with","flake8 / pylint","Bug","loadData and saveData","Resource leaks, no exception handling","Use with open(...) and catch FileNotFoundError / JSONDecodeError"
+"No input validation","pylint","Bug","addItem and removeItem","Accepts wrong argument types or negative quantities","Added type checks and ValueError/TypeError"
+"getQty raises KeyError","pylint","Bug","getQty","Direct index access causes KeyError for missing items","Use stock_data.get(item, 0) instead"
